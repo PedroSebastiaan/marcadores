@@ -1,24 +1,52 @@
-# README
+# Marcadores's App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Basical Setup
 
-Things you may want to cover:
+We added the next gems to this project:
 
-* Ruby version
+```rails
+# Bootstrap gem to styles.
+gem "bootstrap", "~> 4.3.1"
 
-* System dependencies
+# Jquery gem to use jquery animations and others.
+gem "jquery-rails", "~> 4.4"
 
-* Configuration
+# Faker gem to generate fake data.
+gem "faker", "~> 2.19"
 
-* Database creation
+# Graph gem to generate graphs.
+gem "chartkick", "~> 3.4"
 
-* Database initialization
+# group_by_day method required by Chartkick gem.
+gem "groupdate", "~> 5.2"
+```
+## Principal routes
 
-* How to run the test suite
+```bash
+# Index of categories:
+get "/categories", to: "categories#index"
 
-* Services (job queues, cache servers, search engines, etc.)
+# Index of archetypes:
+get "/archetypes", to: "archetypes#index"
 
-* Deployment instructions
+# Index of markers:
+get "/markers", to: "markers#index"
 
-* ...
+# Api consults:
+get "/api/categories/:id", to: "categories#api"
+```
+## Basical concepts
+
+* The database was started with info of FAKER gem, of Faker::TvShows::FamilyGuy.quote in categories, archetypes and markers.
+
+* In the index of types show all the types and we can create new types.
+
+* In the index of categories show categories that only has "publico" status and we can create new types.
+
+* In the index of markers show all the markers and we can create new types.
+
+* Only the index of markers view is asynchronous, the others are not.
+
+* The Pie-chart was placed into the index of types.
+
+
